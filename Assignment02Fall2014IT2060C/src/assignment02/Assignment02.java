@@ -10,7 +10,7 @@ import java.io.FileReader;
  *
  */
 public class Assignment02 {
-	private int[] listOfPrimes;
+	private int[] listOfPrimes = new int[50000];
 	
 	public int LoadPrimes() {
 		int count = 0;
@@ -23,8 +23,10 @@ public class Assignment02 {
 				String buff = br.readLine();
 				String[] listOfPrimeStrings = buff.split(" ");
 				for (int i = 0; i < listOfPrimeStrings.length; i++) {
-					int num = Integer.valueOf(listOfPrimeStrings[i]);
-					if (num > 0) {listOfPrimes[idx] = num; idx++; count++;}
+					if (listOfPrimeStrings[i].trim().length() > 0) {
+						int num = Integer.valueOf(listOfPrimeStrings[i]);
+						if (num > 0) {listOfPrimes[idx] = num; idx++; count++;}
+					}
 				}
 			}
 		} catch (Exception ex) {
@@ -90,12 +92,13 @@ public class Assignment02 {
 	public Boolean IsPrimeV03(int num) {
 		Boolean isPrime = true;
 		int numOfPrimes = LoadPrimes();
+		int limit = (int) Math.sqrt(num);
 		for (int i = 0; i < numOfPrimes; i++) {
 			int divisor = listOfPrimes[i];
+			if (divisor >= limit) break;
 			if ((num % divisor) == 0) {isPrime = false; break;}
 		}
 		if (isPrime == false) {
-			int limit = (int) Math.sqrt(num);
 			for (int i = listOfPrimes[listOfPrimes.length-1] + 2; i < limit; i+= 2) {
 				if ((num % i) == 0) {
 					isPrime = false;
