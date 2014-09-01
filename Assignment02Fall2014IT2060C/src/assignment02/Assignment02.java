@@ -6,12 +6,12 @@ import java.io.FileReader;
 /**
  * Code for Assignment 02, IT2060C Fall 2014
  * @author Nicholson.Bill
- * http://www.cs.arizona.edu/icon/oddsends/primes.htm
+ * Prime list taken from http://www.cs.arizona.edu/icon/oddsends/primes.htm
  *
  */
 public class Assignment02 {
 	private int[] listOfPrimes = new int[50000];
-	
+
 	public int LoadPrimes() {
 		int count = 0;
 		int idx = 0;
@@ -31,7 +31,7 @@ public class Assignment02 {
 			}
 		} catch (Exception ex) {
 		} finally {try {fr.close();} catch(Exception ex){}}
-		
+
 		return count;
 	}
 	
@@ -106,7 +106,6 @@ public class Assignment02 {
 				}
 			}
 		}
-
 		return isPrime;
 	}
 }
