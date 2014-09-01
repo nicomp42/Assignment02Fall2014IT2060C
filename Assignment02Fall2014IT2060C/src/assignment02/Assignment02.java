@@ -1,5 +1,5 @@
 package assignment02;
-
+ 
 /**
  * Code for Assignment 02, IT2060C Fall 2014
  * @author Nicholson.Bill
